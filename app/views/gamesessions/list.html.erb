@@ -1,0 +1,12 @@
+<% if @gamesessions.blank? %>
+<p> There are no game sessions to list.</p>
+<% else %>
+<p> Latest Sessions of World of Tanks </p>
+
+<ul>
+  <% @gamesessions.each do |game| %>
+  <li><%= link_to game.id, {:action => 'show', :id => game.id} %></li>
+<% end %>
+</ul>
+<% end %>
+<p><%= link_to "Start new session", {:action => 'create'} %></p>
